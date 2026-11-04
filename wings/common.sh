@@ -28,11 +28,16 @@ check_project() {
 	command -v claude >/dev/null 2>&1 || fail "Claude Code is not installed."
 }
 
-# Prints the clone Claude has registered, or nothing if there is none.
-registered_clone() {
-	listing=$(claude plugin marketplace list 2>&1) || fail "could not read Claude's marketplaces: $listing"
-	echo "$listing" | tr -d '\r' | tr '\\' '/' | sed -n '/higuma-soft/,$p' |
-		sed -n 's/.*Source: Directory (\(.*\))$/\1/p' | head -n 1
+# Prints the source of Claude's higuma-soft record as "<kind> <path>", or nothing if there is none.
+registered_source() {
+	listing=$(claude plugin marketplace list --json 2>&1) || fail "could not read Claude's marketplaces: $listing"
+	echo "$listing" | tr -d '\r' | awk -F'"' '
+		/^[[:space:]]*\{/ { name = ""; kind = ""; where = "" }
+		$2 == "name" { name = $4 }
+		$2 == "source" { kind = $4 }
+		$2 == "path" { where = $4 }
+		/^[[:space:]]*\}/ && name == "higuma-soft" { print kind " " where; exit }
+	' | sed 's|\\\\|/|g'
 }
 
 this_clone() {
@@ -42,7 +47,7 @@ this_clone() {
 # Claude keeps one marketplace record per user, so every project on a machine loads hive from
 # the last clone registered. Registering a second clone would silently move the first project.
 check_registered_clone() {
-	registered=$(registered_clone)
-	[ -z "$registered" ] || [ "$registered" = "$(this_clone)" ] ||
-		fail "hive is already registered from $registered. Claude keeps one hive clone per machine, so using this one would move that project too."
+	registered=$(registered_source)
+	[ -z "$registered" ] || [ "$registered" = "directory $(this_clone)" ] ||
+		fail "hive is already registered from another source ($registered). Claude keeps one hive clone per machine, so using this one would move that project too."
 }
