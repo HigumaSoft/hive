@@ -4,6 +4,11 @@ hive_dir=$(cd "$(dirname "$0")/.." && pwd)
 project=$(dirname "$hive_dir")
 hive_name=$(basename "$hive_dir")
 
+# Claude keeps one marketplace record per name, so each project needs its own name:
+# with a shared one, the last clone registered would serve every project on the machine.
+slug=$(basename "$project" | tr 'A-Z' 'a-z' | tr -cs 'a-z0-9' '-' | sed 's/^-*//; s/-*$//')
+market="hive-$slug"
+
 fail() {
 	echo "hive: $1" >&2
 	exit 1
@@ -25,29 +30,29 @@ check_project() {
 	cdup=$(cd "$project" && git rev-parse --show-cdup 2>/dev/null) ||
 		fail "$project is not a git repo. Clone hive into a project folder first."
 	[ -z "$cdup" ] || fail "$project is not the root of a git repo. Clone hive into the project's root."
+	[ -n "$slug" ] || fail "the project folder name needs at least one Latin letter or digit."
 	command -v claude >/dev/null 2>&1 || fail "Claude Code is not installed."
 }
 
-# Prints the source of Claude's higuma-soft record as "<kind> <path>", or nothing if there is none.
+# Prints the source of this project's marketplace record as "<kind> <path>", or nothing if there is none.
 registered_source() {
 	listing=$(claude plugin marketplace list --json 2>&1) || fail "could not read Claude's marketplaces: $listing"
-	echo "$listing" | tr -d '\r' | awk -F'"' '
+	echo "$listing" | tr -d '\r' | awk -F'"' -v market="$market" '
 		/^[[:space:]]*\{/ { name = ""; kind = ""; where = "" }
 		$2 == "name" { name = $4 }
 		$2 == "source" { kind = $4 }
 		$2 == "path" { where = $4 }
-		/^[[:space:]]*\}/ && name == "higuma-soft" { print kind " " where; exit }
-	' | sed 's|\\\\|/|g'
+		/^[[:space:]]*\}/ && name == market { print kind " " where; exit }
+	' | sed 's|\\\\|/|g; s|/$||'
 }
 
-this_clone() {
-	(cd "$hive_dir" && pwd -W 2>/dev/null) || echo "$hive_dir"
+this_project() {
+	(cd "$project" && pwd -W 2>/dev/null) || echo "$project"
 }
 
-# Claude keeps one marketplace record per user, so every project on a machine loads hive from
-# the last clone registered. Registering a second clone would silently move the first project.
-check_registered_clone() {
+# Two projects with the same folder name would share a record.
+check_market_name() {
 	registered=$(registered_source)
-	[ -z "$registered" ] || [ "$registered" = "directory $(this_clone)" ] ||
-		fail "hive is already registered from another source ($registered). Claude keeps one hive clone per machine, so using this one would move that project too."
+	[ -z "$registered" ] || [ "$registered" = "directory $(this_project)" ] ||
+		fail "the name $market is already used by another source ($registered). Rename this project's folder."
 }

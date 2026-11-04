@@ -30,9 +30,7 @@ make init
 
 `make init` works on the parent folder. It connects the agents, creates the drafts folder `nectar/` and adds the project profile `docs/hive-profile.yaml`. It never overwrites a file and makes no commits, so you can review what it added.
 
-`make update` brings this clone up to date and refreshes the plugin.
-
-For now, one machine can use one hive clone: Claude Code keeps a single record of it per user, so `make init` refuses a second project rather than moving the first one.
+`make update` brings this clone up to date and refreshes the plugin. Each project uses its own clone, so projects can stay on different versions. After either command, restart Claude Code or run `/reload-plugins`.
 
 ## Hive terms
 

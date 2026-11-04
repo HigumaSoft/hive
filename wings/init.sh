@@ -38,12 +38,19 @@ add_block() {
 
 check_no_api_keys
 check_project
-check_registered_clone
+check_market_name
+
+manifest="$project/.claude-plugin/marketplace.json"
+if [ -e "$manifest" ] && ! grep -qF "\"name\": \"$market\"" "$manifest"; then
+	fail ".claude-plugin/marketplace.json already exists and isn't hive's. Move it and run again."
+fi
+
 command -v codex >/dev/null 2>&1 || say "warning: Codex is not on PATH, so Codex bees can't be dispatched yet."
 
 add_ignore "$hive_name/"
 add_ignore "nectar/"
 add_ignore ".claude/settings.local.json"
+add_ignore ".claude-plugin/"
 
 mkdir -p "$project/nectar"
 
@@ -79,11 +86,25 @@ EOF
 	say "created docs/hive-profile.yaml"
 fi
 
-# Local scope: Claude records the absolute path of this clone, which belongs to this machine only.
+if [ ! -e "$manifest" ]; then
+	mkdir -p "$project/.claude-plugin"
+	cat >"$manifest" <<EOF
+{
+  "name": "$market",
+  "owner": { "name": "Higuma Soft" },
+  "plugins": [
+    { "name": "hive", "source": "./$hive_name", "description": "Higuma Soft's office of AI agents" }
+  ]
+}
+EOF
+	say "created .claude-plugin/marketplace.json"
+fi
+
+# Local scope: Claude records the absolute path of this project, which belongs to this machine only.
 cd "$project"
-claude plugin marketplace add "./$hive_name" --scope local
-claude plugin install hive@higuma-soft --scope local
-grep -q '"hive@higuma-soft": true' .claude/settings.local.json ||
+claude plugin marketplace add ./ --scope local
+claude plugin install "hive@$market" --scope local
+grep -qF "\"hive@$market\": true" .claude/settings.local.json ||
 	fail "the plugin was not enabled for this project."
 
 say "done. The agents are connected to $(basename "$project")."
