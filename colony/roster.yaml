@@ -1,0 +1,122 @@
+# Every role in the hive. Job descriptions sit next to this file as <key>.md.
+# engine: claude, openai, or balance (set per piece of work).
+# level: senior or lighter, for roles on a fixed Claude model.
+# twin: the Codex bee of a pair.
+
+bees:
+  - key: queen
+    nickname: Queen
+    title: Hive Manager
+    engine: claude
+    level: senior
+
+  - key: hornet
+    nickname: Hornet
+    title: Red Team
+    engine: balance
+
+  - key: waggle-dancer
+    nickname: Waggle Dancer
+    title: Org Manager
+    caste: Dancers
+    engine: claude
+    level: senior
+
+  - key: round-dancer
+    nickname: Round Dancer
+    title: Project Manager
+    caste: Dancers
+    engine: claude
+    level: lighter
+
+  - key: forager
+    nickname: Forager
+    title: Product Manager
+    caste: Foragers
+    engine: claude
+    level: senior
+    twin: Bumble Forager
+
+  - key: frame-builder
+    nickname: Frame Builder
+    title: Architect
+    caste: Builders
+    engine: claude
+    level: senior
+    twin: Bumble Frame Builder
+
+  - key: comb-builder
+    nickname: Comb Builder
+    title: Backend Engineer
+    caste: Builders
+    engine: claude
+    level: senior
+    twin: Bumble Comb Builder
+
+  - key: shape-builder
+    nickname: Shape Builder
+    title: Designer
+    caste: Builders
+    engine: claude
+    level: senior
+    twin: Bumble Shape Builder
+
+  - key: pollen-builder
+    nickname: Pollen Builder
+    title: Image Maker
+    caste: Builders
+    engine: openai
+
+  - key: fanner
+    nickname: Fanner
+    title: DevOps Engineer
+    caste: Fanners
+    engine: claude
+    level: senior
+    twin: Bumble Fanner
+
+  - key: storer
+    nickname: Storer
+    title: Technical Writer
+    caste: Storers
+    engine: claude
+    level: senior
+    twin: Bumble Storer
+
+  - key: gate-guard
+    nickname: Gate Guard
+    title: Security Engineer
+    caste: Guards
+    engine: balance
+
+  - key: taste-guard
+    nickname: Taste Guard
+    title: QA Engineer
+    caste: Guards
+    engine: balance
+
+  - key: scent-guard
+    nickname: Scent Guard
+    title: Process Auditor
+    caste: Guards
+    engine: balance
+
+  - key: scout
+    nickname: Scout
+    title: Researcher
+    caste: Scouts
+    engine: balance
+    twin: Bumble Scout   # contested questions only: Scout on Claude, Bumble Scout on Codex
+
+  - key: nurse
+    nickname: Nurse
+    title: Mentor
+    caste: Nurses
+    engine: claude
+    level: senior
+
+# Named, not hired yet. Hired through Queen when needed.
+named:
+  - nickname: Cap Builder
+    title: Frontend Engineer
+    caste: Builders
