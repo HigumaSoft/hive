@@ -32,6 +32,8 @@ make init
 
 `make update` brings this clone up to date and refreshes the plugin.
 
+For now, one machine can use one hive clone: Claude Code keeps a single record of it per user, so `make init` refuses a second project rather than moving the first one.
+
 ## Hive terms
 
 | Term | Means |
