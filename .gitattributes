@@ -1,0 +1,3 @@
+# sh and make need LF, also in a Windows clone
+*.sh text eol=lf
+Makefile text eol=lf
