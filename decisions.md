@@ -4,3 +4,32 @@ One row per decision, numbered `H-nnnn`. Status is Proposed, Accepted, Modified,
 
 | ID | Date | Decision | Reason | Status |
 |---|---|---|---|---|
+| H-0001 | 2026-10-28 | hive is Higuma Soft's office of AI agents, used by every project and built as a full platform: agent kit, operating manual and project-setup kit, later MCP servers, automation and dashboards. The owner is the Product Owner. | One shared team and method instead of rules kept per project. | Accepted |
+| H-0002 | 2026-10-28 | The setup running in Aromatheca today is iteration 1 and stays in use until the switch. hive is iteration 2, designed fresh from company practice, not a copy of it. | Iteration 1 gives lessons, not structure. | Accepted |
+| H-0003 | 2026-10-28 | The hive repo is public. | GitHub Free protects branches only on public repositories. | Accepted |
+| H-0004 | 2026-10-28 | Nothing private goes in hive: no secrets, no account, site or calendar IDs, no product content, no costs. These stay in a local config file or in the project's docs repo. | The repo is public. | Accepted |
+| H-0005 | 2026-11-05 | Folders carry bee names; the README gives their plain meaning. | hive should feel like a hive, and one table is enough for agents and new people. | Accepted |
+| H-0006 | 2026-11-05 | The default branch is `honey`; work branches are `cell/<topic>`. | Honey is finished work; one cell holds one piece of work. | Accepted |
+| H-0007 | 2026-11-05 | A project attaches hive by cloning it into a subfolder, ignored by the project's git, and running `make init`. | hive stays a separate, reusable repo that is visible inside project sessions, and each project stays on its own version. | Accepted |
+| H-0008 | 2026-11-05 | The switch from iteration 1 is one delete command followed by `make init`. It never touches Codex's history. | A clean start without losing the history Codex keeps. | Accepted |
+| H-0009 | 2026-11-05 | Drafts belong to the project, in a folder named `nectar/`; hive holds none. The delete command leaves them alone. | Bees collect nectar outside the hive; raw work comes from projects and stays useful later. | Accepted |
+| H-0010 | 2026-10-28 | Main material lives in the repo. Confluence guides people: org chart, profile pages, onboarding, labels and templates. | Agents search and load files reliably; people read pages and mention them in tickets and meetings. | Accepted |
+| H-0011 | 2026-10-28 | Every project has its own docs repo. Basic policies live in hive, project-specific ones in the project's docs repo. | Holds unless it proves ineffective. | Accepted |
+| H-0012 | 2026-10-28 | Org decisions go in hive's log as `H-nnnn`; project decisions stay in the project's log. | Agents can find them, and org rows stay apart from project rows. | Accepted |
+| H-0013 | 2026-10-28 | AI work runs on paid subscriptions only; paid tokens need the owner's approval. Subscriptions are documented in Confluence. | No per-token bills without a decision. | Accepted |
+| H-0014 | 2026-10-28 | hive refuses to run if an API key is set. | A key that is set would bill per token without warning. | Accepted |
+| H-0015 | 2026-10-28 | When an engine's limit runs out, its work pauses and continues in a compensation session. | The other engine's work goes on, and nothing falls back to paid tokens. | Accepted |
+| H-0016 | 2026-11-05 | Three kinds work with the hive: Bees (agents, true citizens), Symbionts (vendors, called in when needed, not in the active pool) and Flowers (personas, simulated users outside the hive). | Narrow expertise and user views without a large team. | Accepted |
+| H-0017 | 2026-10-28 | Names hint at the role. | Names make notes and discussion easier to follow. | Accepted |
+| H-0018 | 2026-10-28 | Outputs are signed "Name · Title · engine". | It always shows which engine did the work. | Accepted |
+| H-0019 | 2026-10-28 | Every piece of work has a named doer and named reviewers. | Clear ownership of the work and of its review. | Accepted |
+| H-0020 | 2026-10-31 | Main roles are a pair: Claude as senior at raised effort, never max, with Codex under it. | Every main role has a cross-engine reviewer. | Accepted |
+| H-0021 | 2026-10-31 | Doers are fixed. Evaluation roles are equal and set by balance between engines. Capability can override, for example images go to OpenAI. | The hierarchy stays clear while both subscriptions share the load. | Accepted |
+| H-0022 | 2026-10-31 | Symbionts and Flowers are defined in planning. Anyone, even a Symbiont or a Flower, can raise a need; the manager decides. | Whoever notices a missing skill can say so, and staffing stays with one person. | Accepted |
+| H-0023 | 2026-10-31 | Symbionts are advisory only, and a new hire needs the owner's OK. | The one who called them stays responsible for the result. | Accepted |
+| H-0024 | 2026-11-05 | Flowers are labelled simulated, based on sources and usable at any evaluation step. They are created when needed and logged in a pool, the Meadow, in the project's docs repo. | They catch early gaps but don't replace real users; the pool avoids recreating them. | Accepted |
+| H-0025 | 2026-10-28 | Three flows: Discovery, Delivery and Learning. New ones are added when they appear. | Each flow needs a different share of the owner's time. | Accepted |
+| H-0026 | 2026-10-28 | A missing policy or skill is flagged, not guessed, and becomes a task for the manager. | hive grows from real cases, not from guessing everything upfront. | Accepted |
+| H-0027 | 2026-11-05 | Queen manages hive: only Queen edits it, on Claude, with Codex reviewing, and pushes on the owner's word. | One door for changes keeps project clones from drifting apart. | Accepted |
+| H-0028 | 2026-11-05 | Strict branch protection is set as the last step of the build. | Changes stay simple while hive is being built. | Accepted |
+| H-0029 | 2026-11-05 | The owner's hive name is Beowulf. | Higuma means brown bear, and Beowulf reads as "bee-wolf": a bear in disguise among the bees. | Accepted |
