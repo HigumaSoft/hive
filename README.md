@@ -15,7 +15,22 @@ Folders carry bee names; this table gives their plain meaning.
 | `dance/` | Processes | How work flows, and which meetings exist |
 | `wax/` | Templates | Document templates and Confluence page templates |
 | `scouts/` | Plans | hive's own plans |
+| `wings/` | Scripts | The scripts behind `make init` and `make update` |
 | `decisions.md` | Decisions | The decision log |
+
+## Use it in a project
+
+You need Git, make, Claude Code and Codex, and the project folder's name must use Latin letters or digits. From the project's root:
+
+```sh
+git clone https://github.com/HigumaSoft/hive
+cd hive
+make init
+```
+
+`make init` works on the parent folder. It connects the agents, creates the drafts folder `nectar/` and adds the project profile `docs/hive-profile.yaml`. It never overwrites a file and makes no commits, so you can review what it added.
+
+`make update` brings this clone up to date and refreshes the plugin. Each project uses its own clone, so projects can stay on different versions. After either command, restart Claude Code or run `/reload-plugins`.
 
 ## Hive terms
 
