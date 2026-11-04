@@ -41,3 +41,4 @@ One row per decision, numbered `H-nnnn`. Status is Proposed, Accepted, Modified,
 | H-0035 | 2026-11-05 | A bee that can do the work does it. If it can't, it asks Queen for a worker, not for the work. Queen sends a Symbiont from the pool or drafts a new one for the owner's OK. The bee works with the Symbiont and stays responsible for the result. | One door for workers, and the job stays with the bee. | Accepted |
 | H-0036 | 2026-11-05 | Symbionts are one-task roles. They stay in the pool for reuse but are not part of the hive. | Narrow needs don't grow the hive. | Accepted |
 | H-0037 | 2026-11-05 | The team is the roster in `colony/roster.yaml`. The Cap Builder is named but not hired yet. | One list of who works here. | Accepted |
+| H-0038 | 2026-11-05 | The Nurse is a single bee on Claude, an exception to H-0020. | It coordinates learning and Symbionts do the teaching, so it has no volume work for a twin. | Accepted |

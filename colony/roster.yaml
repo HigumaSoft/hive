@@ -106,7 +106,7 @@ bees:
     title: Researcher
     caste: Scouts
     engine: balance
-    twin: Bumble Scout   # contested questions only
+    twin: Bumble Scout   # contested questions only: Scout on Claude, Bumble Scout on Codex
 
   - key: nurse
     nickname: Nurse
