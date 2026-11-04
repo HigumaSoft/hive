@@ -24,6 +24,8 @@ Folders carry bee names; this table gives their plain meaning.
 | Beowulf | The owner: "bee-wolf", a bear in disguise, here for the honey |
 | Queen | The agent that manages hive |
 | Bees | Agents, the true citizens of the hive |
+| Caste | A department of bees |
+| Bumble | The Codex twin of a pair |
 | Symbionts | Vendors, called in when needed |
 | Flowers | Personas, simulated users outside the hive |
 | Meadow | The pool of personas |
