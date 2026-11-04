@@ -38,6 +38,7 @@ add_block() {
 
 check_no_api_keys
 check_project
+check_registered_clone
 command -v codex >/dev/null 2>&1 || say "warning: Codex is not on PATH, so Codex bees can't be dispatched yet."
 
 add_ignore "$hive_name/"
@@ -71,7 +72,7 @@ profile="$project/docs/hive-profile.yaml"
 if [ ! -e "$profile" ]; then
 	cat >"$profile" <<EOF
 # Who works on this project. Nicknames come from $hive_name/colony/roster.yaml.
-project: $(basename "$project")
+project: '$(basename "$project" | sed "s/'/''/g")'
 bees: []
 symbionts: []
 EOF
@@ -80,11 +81,9 @@ fi
 
 # Local scope: Claude records the absolute path of this clone, which belongs to this machine only.
 cd "$project"
-if ! claude plugin marketplace list 2>/dev/null | grep -q 'higuma-soft'; then
-	claude plugin marketplace add "./$hive_name" --scope local
-fi
-if ! claude plugin list 2>/dev/null | grep -q 'hive@higuma-soft'; then
-	claude plugin install hive@higuma-soft --scope local
-fi
+claude plugin marketplace add "./$hive_name" --scope local
+claude plugin install hive@higuma-soft --scope local
+grep -q '"hive@higuma-soft": true' .claude/settings.local.json ||
+	fail "the plugin was not enabled for this project."
 
 say "done. The agents are connected to $(basename "$project")."

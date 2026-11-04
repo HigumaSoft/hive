@@ -6,8 +6,10 @@ set -eu
 
 check_no_api_keys
 check_project
+check_registered_clone
 
-git -C "$hive_dir" pull --ff-only
+cd "$hive_dir"
+git pull --ff-only
 
 cd "$project"
 claude plugin marketplace update higuma-soft
