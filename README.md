@@ -20,7 +20,7 @@ Folders carry bee names; this table gives their plain meaning.
 
 ## Use it in a project
 
-You need Git, make, Claude Code and Codex. From the project's root:
+You need Git, make, Claude Code and Codex, and the project folder's name must use Latin letters or digits. From the project's root:
 
 ```sh
 git clone https://github.com/HigumaSoft/hive
