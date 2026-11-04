@@ -1,0 +1,23 @@
+# hive
+
+Higuma Soft's office of AI agents: the shared team, rules and working methods that every Higuma Soft project uses.
+
+**Status:** being designed. Nothing here is in use yet.
+
+## Layout
+
+Folders carry bee names; this table gives their plain meaning.
+
+| Path | Plain name | Holds |
+|---|---|---|
+| `colony/` | Team | The staff: who works here and what each role does |
+| `instinct/` | Handbook | Rules every role follows |
+| `dance/` | Processes | How work flows, and which meetings exist |
+| `wax/` | Templates | Document templates and Confluence page templates |
+| `scouts/` | Plans | hive's own plans |
+| `decisions.md` | Decisions | The decision log |
+| `nectar/` | Drafts | Local working notes, never committed |
+
+## Nothing private
+
+This repository is public. It holds no secrets, no account, site or calendar IDs, no product content and no costs. Those stay in a local config file or in the project's own docs repo.
