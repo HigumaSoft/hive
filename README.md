@@ -16,7 +16,20 @@ Folders carry bee names; this table gives their plain meaning.
 | `wax/` | Templates | Document templates and Confluence page templates |
 | `scouts/` | Plans | hive's own plans |
 | `decisions.md` | Decisions | The decision log |
-| `nectar/` | Drafts | Local working notes, never committed |
+
+## Hive terms
+
+| Term | Means |
+|---|---|
+| Beowulf | The owner: "bee-wolf", a bear in disguise, here for the honey |
+| Queen | The agent that manages hive |
+| Bees | Agents, the true citizens of the hive |
+| Symbionts | Vendors, called in when needed |
+| Flowers | Personas, simulated users outside the hive |
+| Meadow | The pool of personas |
+| Nectar | A project's raw working notes, kept in the project |
+| Honey | Finished, approved work, and the default branch |
+| Cell | One piece of work; work branches are `cell/<topic>` |
 
 ## Nothing private
 
