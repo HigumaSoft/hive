@@ -36,13 +36,26 @@ add_block() {
 	say "added the hive block to $1"
 }
 
+manifest_text() {
+	cat <<EOF
+{
+  "name": "$market",
+  "owner": { "name": "Higuma Soft" },
+  "plugins": [
+    { "name": "hive", "source": "./$hive_name", "description": "Higuma Soft's office of AI agents" }
+  ]
+}
+EOF
+}
+
 check_no_api_keys
 check_project
 check_market_name
 
+# hive knows exactly what it generates, so anything else is not its file.
 manifest="$project/.claude-plugin/marketplace.json"
-if [ -e "$manifest" ] && ! grep -qF "\"name\": \"$market\"" "$manifest"; then
-	fail ".claude-plugin/marketplace.json already exists and isn't hive's. Move it and run again."
+if [ -e "$manifest" ] && [ "$(cat "$manifest")" != "$(manifest_text)" ]; then
+	fail ".claude-plugin/marketplace.json already exists and isn't this clone's. Move it and run again."
 fi
 
 command -v codex >/dev/null 2>&1 || say "warning: Codex is not on PATH, so Codex bees can't be dispatched yet."
@@ -88,15 +101,7 @@ fi
 
 if [ ! -e "$manifest" ]; then
 	mkdir -p "$project/.claude-plugin"
-	cat >"$manifest" <<EOF
-{
-  "name": "$market",
-  "owner": { "name": "Higuma Soft" },
-  "plugins": [
-    { "name": "hive", "source": "./$hive_name", "description": "Higuma Soft's office of AI agents" }
-  ]
-}
-EOF
+	manifest_text >"$manifest"
 	say "created .claude-plugin/marketplace.json"
 fi
 
