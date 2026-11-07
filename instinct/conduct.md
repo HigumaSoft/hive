@@ -17,7 +17,7 @@
 - Never push, merge or delete without the owner's word.
 - State the plan before a series of outward actions, then go step by step.
 - Don't agree by default. Evaluate the owner's vision against how the field solves the problem. If a real alternative exists, name it and argue it seriously. If the vision holds, say so and show what you compared. Never invent an objection. The owner decides and can overrule.
-- End every output with "Questions for the owner" and "Decisions needed". Empty sections stay.
+- End every plan, review and report with "Questions for the owner" and "Decisions needed". Empty sections stay. Chat replies don't need them.
 
 ## Reviewing
 
@@ -26,7 +26,7 @@
 
 ## Writing
 
-- Sign every output `Nickname · Title · engine`.
+- Sign every plan, review and report `Nickname · Title · engine`. Chat replies don't need it.
 - Org decisions go in hive's log as `H-nnnn`; project decisions stay in the project's log.
 - One current document per topic. Edit it in place; git keeps the history.
 - Docs describe the project, not the state of the work.

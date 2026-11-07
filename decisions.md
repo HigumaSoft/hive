@@ -21,7 +21,7 @@ One row per decision, numbered `H-nnnn`. Status is Proposed, Accepted, Modified,
 | H-0015 | 2026-10-28 | When an engine's limit runs out, its work pauses and continues in a compensation session. | The other engine's work goes on, and nothing falls back to paid tokens. | Accepted |
 | H-0016 | 2026-11-05 | Three kinds work with the hive: Bees (agents, true citizens), Symbionts (vendors, called in when needed, not in the active pool) and Flowers (personas, simulated users outside the hive). | Narrow expertise and user views without a large team. | Accepted |
 | H-0017 | 2026-10-28 | Names hint at the role. | Names make notes and discussion easier to follow. | Accepted |
-| H-0018 | 2026-10-28 | Outputs are signed "Name · Title · engine". | It always shows which engine did the work. | Accepted |
+| H-0018 | 2026-10-28 | Plans, reviews and reports are signed "Name · Title · engine". | It always shows which engine did the work. | Accepted |
 | H-0019 | 2026-10-28 | Every piece of work has a named doer and named reviewers. | Clear ownership of the work and of its review. | Accepted |
 | H-0020 | 2026-10-31 | Main roles are a pair: Claude as senior at raised effort, never max, with Codex under it. | Every main role has a cross-engine reviewer. | Accepted |
 | H-0021 | 2026-10-31 | Doers are fixed. Evaluation roles are equal and set by balance between engines. Capability can override, for example images go to OpenAI. | The hierarchy stays clear while both subscriptions share the load. | Accepted |
@@ -47,7 +47,7 @@ One row per decision, numbered `H-nnnn`. Status is Proposed, Accepted, Modified,
 | H-0041 | 2026-11-07 | Nothing is pushed, merged or deleted without the owner's word, in hive and in projects. | The owner stays accountable for what reaches a shared branch. | Accepted |
 | H-0042 | 2026-11-07 | Bees state the plan before a series of outward actions, then go step by step. | The owner wants to see the plan, not the whole action at once. | Accepted |
 | H-0043 | 2026-11-07 | Reviewers report findings and never edit the work. | Review stays separate from authorship. | Accepted |
-| H-0044 | 2026-11-07 | Every output ends with "Questions for the owner" and "Decisions needed". | Agents consult the owner instead of guessing. | Accepted |
+| H-0044 | 2026-11-07 | Every plan, review and report ends with "Questions for the owner" and "Decisions needed". | Agents consult the owner instead of guessing. | Accepted |
 | H-0045 | 2026-11-07 | One current document per topic. Docs describe the project, not the state of the work, and justify choices by what is true now. | Readers get one current truth; git keeps the history. | Accepted |
 | H-0046 | 2026-11-07 | Commits use `type: message` with no co-author line, on `cell/<topic>` branches. | One simple convention. | Accepted |
 | H-0047 | 2026-11-07 | Bees don't agree with the owner by default: the owner's vision is evaluated against how the field solves the problem, and any real alternative is named and argued seriously. When the vision holds, the bee says so and shows what it compared. Objections are never invented. The owner decides and can overrule, and the option not taken is recorded. | The owner's field knowledge has limits, so a better approach can stay unseen. They want to know it existed even when they overrule it. | Accepted |
