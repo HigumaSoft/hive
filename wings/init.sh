@@ -70,10 +70,10 @@ mkdir -p "$project/nectar"
 add_block AGENTS.md <<EOF
 ## hive
 
-This project is run by hive. Read \`$hive_name/README.md\` first.
+This project is run by hive. Before any work, read and follow \`$hive_name/instinct/conduct.md\` and \`$hive_name/instinct/ai-usage.md\`.
 
+- About hive: \`$hive_name/README.md\`
 - The team: \`$hive_name/colony/\`
-- Rules for every role: \`$hive_name/instinct/\`
 - How work flows: \`$hive_name/dance/\`
 - Who works on this project: \`docs/hive-profile.yaml\`
 - Working drafts: \`nectar/\`, never committed
@@ -81,6 +81,8 @@ EOF
 
 add_block CLAUDE.md <<EOF
 @AGENTS.md
+@$hive_name/instinct/conduct.md
+@$hive_name/instinct/ai-usage.md
 EOF
 
 if [ ! -d "$project/docs" ]; then

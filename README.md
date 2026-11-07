@@ -15,7 +15,9 @@ Folders carry bee names; this table gives their plain meaning.
 | `dance/` | Processes | How work flows, and which meetings exist |
 | `wax/` | Templates | Document templates and Confluence page templates |
 | `scouts/` | Plans | hive's own plans |
-| `wings/` | Scripts | The scripts behind `make init` and `make update` |
+| `wings/` | Scripts | `make init`, `make update`, the session check and Codex dispatch |
+| `commands/` | Commands | `/hive:ready` and `/hive:who` |
+| `hooks/` | Hooks | The check at every session start |
 | `decisions.md` | Decisions | The decision log |
 
 ## Use it in a project
