@@ -8,5 +8,5 @@ Discovery has no sprint and no deadline. Topics wait in an ordered list, and ses
 2. A session with the owner sets the vision.
 3. The bee whose field it is writes the plan, in the project's `nectar/`.
 4. The Idea round tests the plan, and the owner decides (`review.md`).
-5. The Gaps round finds what's missing.
+5. The Gaps round finds what's missing. Findings are fixed and confirmed as `review.md` says; a Confirm that isn't clean goes to the owner.
 6. The owner approves the plan. It moves to the project's docs repo, and its work becomes ready tickets.
