@@ -5,9 +5,10 @@ So the owner doesn't have to rethink it each time. If a step causes a problem, t
 1. The owner creates the repo and the Jira project. Agents can't create a Jira project.
 2. The owner clones hive into the repo and runs `make init`.
 3. The owner says "ready". Unless `docs/hive-profile.yaml` says `setup: done`, the Round Dancer does only this, keeping whatever already exists:
-   - Makes sure the project has a dashboard page in the org Confluence space, with a label for the project.
+   - Asks the owner what it can't find: the project in a sentence or two, and the Jira project key.
+   - Makes sure the project has a dashboard page under *Projects* in the org Confluence space, named "Higuma Soft", copied from *Project dashboard template*, with a label for the project.
    - Makes sure the Jira project has a board for tickets.
-   - Records both in the profile and sets `setup: done`.
+   - Records the page link and the Jira key in the profile, and sets `setup: done`.
    - Asks the owner when the first project meeting is.
 
 Beyond that, what a project needs is decided in its own planning, including where its docs live.
