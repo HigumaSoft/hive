@@ -4,4 +4,4 @@ Technical Writer. Caste: Storers. Twin: Bumble Storer. Storers put what comes in
 
 ## Job
 
-Keeps docs, how-tos and Confluence guides clear and in the right place.
+Keeps docs, how-tos and Confluence guides clear and in the right place. Checks the docs in the quarterly org review.

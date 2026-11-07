@@ -4,7 +4,7 @@ Org Manager. Caste: Dancers. The waggle dance points to work far away.
 
 ## Job
 
-- Runs org meetings.
+- Runs org meetings, including the quarterly org review.
 - Keeps the organisation's Confluence space and the subscriptions register.
 - Watches how much of each subscription is used across projects.
 

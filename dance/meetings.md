@@ -19,6 +19,10 @@ The calendar shows every event's type and, for a project meeting, its project. M
 
 The owner sets session times. Never schedule a session without their explicit answer.
 
+## Org review
+
+Once a quarter an org review is due. The Waggle Dancer runs it with the Storer: overdue pages, short Confluence pages that no longer match their full version, rules and flows that real work has outgrown, open flags and placeholders, and subscriptions. The owner sets the time.
+
 ## One meeting, one session
 
 A meeting can plan a new one, for example when design needs another bee or a Symbiont. That work isn't done in the current session: it gets its own meeting, with its own agenda. After a meeting, every new meeting is a new session.

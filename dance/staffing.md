@@ -8,5 +8,5 @@ There are two kinds of work item. Planning happens in **meetings**, with the own
 - If a work item has no name yet, its manager picks a bee from `colony/roster.yaml` and writes the name on it. The owner can correct it.
 - For an evaluation role, the manager sets the engine by balance between the engines.
 - A bee on Claude works in the session: read its job description in `colony/`, then work and sign as that bee.
-- A reviewer on Codex is dispatched with `wings/dispatch.sh`. Dispatching a doer on Codex isn't built yet, so flag it if a ticket needs one.
+- A bee on Codex is dispatched with `wings/dispatch.sh`: a reviewer for a review round, a doer with `do`. A doer on Codex never commits: the manager reads its changes and its report in `nectar/work/`, then commits.
 - A bee that can't do the work asks Queen for a worker.

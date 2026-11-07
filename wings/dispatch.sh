@@ -1,30 +1,31 @@
 #!/bin/sh
-# Sends a review to a bee on Codex. Run it from the repo under review, on the branch under review.
-# The review is written to the project's nectar/reviews/.
+# Sends work to a bee on Codex. Run it from the repo, on the work branch.
+# A review lands in the project's nectar/reviews/, a work report in nectar/work/.
 #
-# Usage: sh hive/wings/dispatch.sh <role key> <idea|gaps|confirm> "<what the work must do>"
+# Usage: sh hive/wings/dispatch.sh <role key> <idea|gaps|confirm|do> "<what the work must do>"
 #
-# Exit codes: 0 done; 1 error; 2 no review written; 4 quota or rate limit, so the work pauses (H-0015).
+# Exit codes: 0 done; 1 error; 2 no output written; 4 quota or rate limit, so the work pauses (H-0015).
 set -eu
 
 . "$(dirname "$0")/common.sh"
 
-[ "$#" -eq 3 ] || fail 'usage: dispatch.sh <role key> <idea|gaps|confirm> "<what the work must do>"'
+[ "$#" -eq 3 ] || fail 'usage: dispatch.sh <role key> <idea|gaps|confirm|do> "<what the work must do>"'
 role=$1
-round=$2
+kind=$2
 context=$3
 
 job="$hive_dir/colony/$role.md"
 [ -f "$job" ] || fail "no bee with the key $role."
-case "$round" in
-idea | gaps | confirm) ;;
-*) fail "the round must be idea, gaps or confirm." ;;
+case "$kind" in
+idea | gaps | confirm) folder=reviews ;;
+do) folder=work ;;
+*) fail "the kind must be idea, gaps, confirm or do." ;;
 esac
 
 check_no_api_keys
 command -v codex >/dev/null 2>&1 || fail "Codex is not on PATH."
 
-branch=$(git rev-parse --abbrev-ref HEAD) || fail "run this from the repo under review."
+branch=$(git rev-parse --abbrev-ref HEAD) || fail "run this from the repo."
 
 base=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's|^origin/||' || true)
 if [ -z "$base" ]; then
@@ -36,34 +37,48 @@ if [ -z "$base" ]; then
 	done
 fi
 [ -n "$base" ] || fail "could not find the default branch."
-[ "$branch" != "$base" ] || fail "you are on $base. Check out the branch under review."
+[ "$branch" != "$base" ] || fail "you are on $base. Check out the work branch."
 
-mkdir -p "$project/nectar/reviews"
+mkdir -p "$project/nectar/$folder"
 
-# Earlier reviews are kept: a repeat gets the next free name.
-first="$(echo "$branch" | tr '/' '-').$role.$round"
+# Earlier output is kept: a repeat gets the next free name.
+first="$(echo "$branch" | tr '/' '-').$role.$kind"
 name=$first
 n=2
-while [ -e "$project/nectar/reviews/$name.md" ]; do
+while [ -e "$project/nectar/$folder/$name.md" ]; do
 	name="$first-$n"
 	n=$((n + 1))
 done
-out="$project/nectar/reviews/$name.md"
-log="$project/nectar/reviews/$name.log"
-prompt="$project/nectar/reviews/$name.prompt"
-out_native="$(this_project)/nectar/reviews/$name.md"
+out="$project/nectar/$folder/$name.md"
+log="$project/nectar/$folder/$name.log"
+prompt="$project/nectar/$folder/$name.prompt"
+out_native="$(this_project)/nectar/$folder/$name.md"
 
 {
 	cat "$job"
 	echo
 	cat "$hive_dir/instinct/conduct.md"
 	echo
-	cat "$hive_dir/dance/review.md"
-	cat <<EOF
+	if [ "$kind" = do ]; then
+		cat <<EOF
 
 # Your task
 
-You are the bee described at the top. Run the **$round** round of a review of branch $branch: read \`git diff $base...HEAD\` and the files around it.
+You are the bee described at the top. Do this ticket on the current branch, $branch:
+
+$context
+
+Change only what the ticket needs. Don't commit, push or switch branches: the manager reviews your changes and commits them.
+
+When you finish, write a short report to $out_native: what you changed, what you tested, anything done differently, and any questions. Sign as codex.
+EOF
+	else
+		cat "$hive_dir/dance/review.md"
+		cat <<EOF
+
+# Your task
+
+You are the bee described at the top. Run the **$kind** round of a review of branch $branch: read \`git diff $base...HEAD\` and the files around it.
 
 What the work must do:
 
@@ -72,10 +87,11 @@ $context
 Write exactly one file, $out_native, using this template. Edit nothing else, and don't commit. Sign as codex.
 
 EOF
-	cat "$hive_dir/wax/review.md"
+		cat "$hive_dir/wax/review.md"
+	fi
 } >"$prompt"
 
-say "dispatching the $round round to $role on Codex..."
+say "dispatching $kind to $role on Codex..."
 code=0
 codex exec -c model_reasoning_effort=high -C . -s workspace-write --add-dir "$(this_project)/nectar" - <"$prompt" >"$log" 2>&1 || code=$?
 
@@ -85,9 +101,11 @@ if grep -qiE 'rate.?limit|usage limit|quota|limit reached' "$log" && [ ! -s "$ou
 fi
 [ "$code" -eq 0 ] || fail "Codex stopped with code $code. See $log"
 if [ ! -s "$out" ]; then
-	say "Codex finished but wrote no review. See $log"
+	say "Codex finished but wrote nothing to $out. See $log"
 	exit 2
 fi
 
-say "written: nectar/reviews/$name.md"
-grep -m 1 -F '**Verdict:**' "$out" || say "the review has no verdict line."
+say "written: nectar/$folder/$name.md"
+if [ "$folder" = reviews ]; then
+	grep -m 1 -F '**Verdict:**' "$out" || say "the review has no verdict line."
+fi

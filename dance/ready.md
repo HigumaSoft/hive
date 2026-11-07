@@ -8,4 +8,4 @@ When the owner says "ready" in a repo, the Round Dancer:
 4. Lists what is waiting in this project: paused work and open flags.
 5. If nothing is due, takes the next ticket.
 
-A sprint that has ended makes its review, retro and planning due. A skill search is due once a month, as an org item (`skills.md`).
+A sprint that has ended makes its review, retro and planning due. As org items, a skill search is due once a month (`skills.md`) and an org review once a quarter (`meetings.md`).

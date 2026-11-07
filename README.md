@@ -2,7 +2,7 @@
 
 Higuma Soft's office of AI agents: the shared team, rules and working methods that every Higuma Soft project uses.
 
-**Status:** being designed. Nothing here is in use yet.
+**Status:** built and tested on throwaway projects. Not used on a real project yet.
 
 ## Layout
 
