@@ -4,8 +4,8 @@ So the owner doesn't have to rethink it each time. If a step causes a problem, t
 
 1. The owner creates the repo and the Jira project. Agents can't create a Jira project.
 2. The owner clones hive into the repo and runs `make init`.
-3. The owner says "ready". The Round Dancer sees `setup: pending` in `docs/hive-profile.yaml` and does only this:
-   - Creates the project's dashboard page in the org Confluence space, with a label for the project.
+3. The owner says "ready". Unless `docs/hive-profile.yaml` says `setup: done`, the Round Dancer does only this, keeping whatever already exists:
+   - Makes sure the project has a dashboard page in the org Confluence space, with a label for the project.
    - Makes sure the Jira project has a board for tickets.
    - Records both in the profile and sets `setup: done`.
    - Asks the owner when the first project meeting is.
