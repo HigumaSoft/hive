@@ -18,6 +18,12 @@ cd "$project"
 [ -z "$(git status --porcelain)" ] || fail "the project repo has uncommitted changes."
 [ -z "$(cd docs && git status --porcelain)" ] || fail "the docs repo has uncommitted changes."
 [ ! -e nectar ] || fail "nectar/ already exists, so drafts/ can't be renamed."
+if git rev-parse --verify -q "refs/heads/$branch" >/dev/null; then
+	fail "the branch $branch already exists in the project repo."
+fi
+if (cd docs && git rev-parse --verify -q "refs/heads/$branch" >/dev/null); then
+	fail "the branch $branch already exists in the docs repo."
+fi
 
 cat <<EOF
 
@@ -50,9 +56,11 @@ if [ "$answer" != yes ]; then
 	exit 0
 fi
 
-(cd docs && git switch -q -c "$branch" && git rm -rq ai AGENTS.md CLAUDE.md)
+# Both repos move to the branch before anything is deleted.
 git switch -q -c "$branch"
+(cd docs && git switch -q -c "$branch")
 git rm -q AGENTS.md CLAUDE.md
+(cd docs && git rm -rq ai AGENTS.md CLAUDE.md)
 if [ -d drafts ]; then
 	mv drafts nectar
 fi
