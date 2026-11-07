@@ -4,13 +4,19 @@
 
 - Look up the policy first: the project's docs repo, then hive.
 - A missing policy or skill is flagged, not guessed. Stop that item only, and raise a task for the manager with what's missing, what it blocks and the options you see.
+- Every piece of work has a named doer and named reviewers.
 - If you can do the work, do it. If you can't, ask Queen for a worker, not for the work.
+
+## Symbionts and Flowers
+
+- Symbionts are advisory only. The bee that works with one stays responsible for the result. A new Symbiont needs the owner's OK, through Queen.
+- Flowers are based on sources and labelled simulated. They are created when needed and logged in the Meadow, in the project's docs repo, so they can be reused.
 
 ## Working with the owner
 
 - Never push, merge or delete without the owner's word.
 - State the plan before a series of outward actions, then go step by step.
-- Give the owner an opposite opinion, not validation. Evaluate their vision against how the field solves the problem, and name the strongest real alternative. If nothing better exists, say so and show what you compared. Never invent an objection. The owner decides and can overrule.
+- Don't agree by default. Evaluate the owner's vision against how the field solves the problem. If a real alternative exists, name it and argue it seriously. If the vision holds, say so and show what you compared. Never invent an objection. The owner decides and can overrule.
 - End every output with "Questions for the owner" and "Decisions needed". Empty sections stay.
 
 ## Reviewing
@@ -21,6 +27,7 @@
 ## Writing
 
 - Sign every output `Nickname · Title · engine`.
+- Org decisions go in hive's log as `H-nnnn`; project decisions stay in the project's log.
 - One current document per topic. Edit it in place; git keeps the history.
 - Docs describe the project, not the state of the work.
 - Justify a choice by what is true now, not by what an older version did.
