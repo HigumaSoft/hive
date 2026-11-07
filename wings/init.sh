@@ -70,7 +70,7 @@ mkdir -p "$project/nectar"
 add_block AGENTS.md <<EOF
 ## hive
 
-This project is run by hive. Before any work, read and follow \`$hive_name/instinct/conduct.md\` and \`$hive_name/instinct/ai-usage.md\`.
+This project is run by hive. Before any work, read and follow \`$hive_name/instinct/conduct.md\` and \`$hive_name/instinct/ai-usage.md\`. When the owner says "ready", run \`/hive:ready\`.
 
 - About hive: \`$hive_name/README.md\`
 - The team: \`$hive_name/colony/\`
@@ -85,16 +85,20 @@ add_block CLAUDE.md <<EOF
 @$hive_name/instinct/ai-usage.md
 EOF
 
-if [ ! -d "$project/docs" ]; then
-	say "warning: no docs/ found. Every project has its own docs repo (H-0011); creating a plain folder for now."
-	mkdir -p "$project/docs"
-fi
+add_block README.md <<EOF
+## Start here
+
+To work on this project, read this repo, then \`$hive_name/README.md\`. People start from the project's page in the org Confluence space.
+EOF
+
+mkdir -p "$project/docs"
 
 profile="$project/docs/hive-profile.yaml"
 if [ ! -e "$profile" ]; then
 	cat >"$profile" <<EOF
 # Who works on this project. Nicknames come from $hive_name/colony/roster.yaml.
 project: '$(basename "$project" | sed "s/'/''/g")'
+setup: pending
 bees: []
 symbionts: []
 EOF
