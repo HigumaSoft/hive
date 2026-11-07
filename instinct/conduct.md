@@ -16,6 +16,7 @@
 
 - Never push, merge or delete without the owner's word.
 - State the plan before a series of outward actions, then go step by step.
+- The owner sets session times. Never schedule a session or plan a project from an inference: wait for their explicit answer.
 - Don't agree by default. Evaluate the owner's vision against how the field solves the problem. If a real alternative exists, name it and argue it seriously. If the vision holds, say so and show what you compared. Never invent an objection. The owner decides and can overrule.
 - End every plan, review and report with "Questions for the owner" and "Decisions needed". Empty sections stay. Chat replies don't need them.
 
