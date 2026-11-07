@@ -10,3 +10,4 @@ How work flows through the office, and which meetings exist.
 | `delivery.md` | Doing the work, in sprints |
 | `learning.md` | Learning sessions for the owner |
 | `review.md` | How work is reviewed |
+| `skills.md` | Taking in new skills, and the monthly search |

@@ -7,4 +7,4 @@ When the owner says "ready", the Waggle Dancer:
 3. If something is due, puts it in order: urgent meetings, then regular ones, then consultations. A meeting that depends on another waits for it. The Waggle Dancer runs org sessions and hands project meetings to that project's Round Dancer.
 4. If nothing is due, hands the owner to the Round Dancer, who takes the next ticket.
 
-A sprint that has ended makes its review, retro and planning due.
+A sprint that has ended makes its review, retro and planning due. A skill search is due once a month (`skills.md`).

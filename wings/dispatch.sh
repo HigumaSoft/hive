@@ -39,12 +39,19 @@ fi
 [ "$branch" != "$base" ] || fail "you are on $base. Check out the branch under review."
 
 mkdir -p "$project/nectar/reviews"
-name="$(echo "$branch" | tr '/' '-').$role.$round"
+
+# Earlier reviews are kept: a repeat gets the next free name.
+first="$(echo "$branch" | tr '/' '-').$role.$round"
+name=$first
+n=2
+while [ -e "$project/nectar/reviews/$name.md" ]; do
+	name="$first-$n"
+	n=$((n + 1))
+done
 out="$project/nectar/reviews/$name.md"
 log="$project/nectar/reviews/$name.log"
 prompt="$project/nectar/reviews/$name.prompt"
 out_native="$(this_project)/nectar/reviews/$name.md"
-rm -f "$out"
 
 {
 	cat "$job"
