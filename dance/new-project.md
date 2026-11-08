@@ -15,7 +15,7 @@ Beyond that, what a project needs is decided in its own planning.
 
 ## The project profile
 
-`docs/hive-profile.yaml` tells hive where the project's things are. `make init` creates it with empty fields, and setup fills them.
+`docs/hive-profile.yaml` tells hive where the project's things are. `make init` creates it with empty fields, and setup fills them. `make init` never rewrites an existing profile, so when hive adds a field, "ready" fills it in projects that are already set up.
 
 | Field | Holds |
 |---|---|
