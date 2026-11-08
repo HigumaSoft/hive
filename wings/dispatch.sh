@@ -1,6 +1,7 @@
 #!/bin/sh
 # Sends work to a bee on Codex. Run it from the repo, on the work branch.
-# A review lands in the project's nectar/reviews/, a work report in nectar/work/.
+# A review lands in nectar/reviews/, a work report in nectar/work/: the project's nectar/,
+# or hive's private notes clone at hive/nectar/ when the work is on hive itself (H-0073).
 #
 # Usage: sh hive/wings/dispatch.sh <role key> <idea|gaps|confirm|do> "<what the work must do>"
 #
@@ -39,20 +40,31 @@ fi
 [ -n "$base" ] || fail "could not find the default branch."
 [ "$branch" != "$base" ] || fail "you are on $base. Check out the work branch."
 
-mkdir -p "$project/nectar/$folder"
+top=$(git rev-parse --show-toplevel) || fail "run this from the repo."
+notes="$project/nectar"
+if [ "$(cd "$top" && pwd)" = "$hive_dir" ]; then
+	if [ -d "$hive_dir/nectar/.git" ]; then
+		notes="$hive_dir/nectar"
+	else
+		say "warning: hive's notes clone isn't at $hive_name/nectar/, so this goes to the project's nectar/."
+	fi
+fi
+
+mkdir -p "$notes/$folder"
+notes_native=$(cd "$notes" && pwd -W 2>/dev/null || pwd)
 
 # Earlier output is kept: a repeat gets the next free name.
 first="$(echo "$branch" | tr '/' '-').$role.$kind"
 name=$first
 n=2
-while [ -e "$project/nectar/$folder/$name.md" ]; do
+while [ -e "$notes/$folder/$name.md" ]; do
 	name="$first-$n"
 	n=$((n + 1))
 done
-out="$project/nectar/$folder/$name.md"
-log="$project/nectar/$folder/$name.log"
-prompt="$project/nectar/$folder/$name.prompt"
-out_native="$(this_project)/nectar/$folder/$name.md"
+out="$notes/$folder/$name.md"
+log="$notes/$folder/$name.log"
+prompt="$notes/$folder/$name.prompt"
+out_native="$notes_native/$folder/$name.md"
 
 {
 	cat "$job"
@@ -93,7 +105,7 @@ EOF
 
 say "dispatching $kind to $role on Codex..."
 code=0
-codex exec -c model_reasoning_effort=high -C . -s workspace-write --add-dir "$(this_project)/nectar" - <"$prompt" >"$log" 2>&1 || code=$?
+codex exec -c model_reasoning_effort=high -C . -s workspace-write --add-dir "$notes_native" - <"$prompt" >"$log" 2>&1 || code=$?
 
 if grep -qiE 'rate.?limit|usage limit|quota|limit reached' "$log" && [ ! -s "$out" ]; then
 	say "Codex hit a limit, so this work pauses. See $log"
@@ -105,7 +117,7 @@ if [ ! -s "$out" ]; then
 	exit 2
 fi
 
-say "written: nectar/$folder/$name.md"
+say "written: $out"
 if [ "$folder" = reviews ]; then
 	grep -m 1 -F '**Verdict:**' "$out" || say "the review has no verdict line."
 fi
