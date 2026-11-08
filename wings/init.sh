@@ -75,7 +75,7 @@ This project is run by hive. Before any work, read and follow \`$hive_name/insti
 - About hive: \`$hive_name/README.md\`
 - The team: \`$hive_name/colony/\`
 - How work flows: \`$hive_name/dance/\`
-- Who works on this project: \`docs/hive-profile.yaml\`
+- Where this project's things are, and who works on it: \`docs/hive-profile.yaml\`
 - Working drafts: \`nectar/\`, never committed
 EOF
 
@@ -96,9 +96,14 @@ mkdir -p "$project/docs"
 profile="$project/docs/hive-profile.yaml"
 if [ ! -e "$profile" ]; then
 	cat >"$profile" <<EOF
-# Who works on this project. Nicknames come from $hive_name/colony/roster.yaml.
+# Where this project's things are and who works on it. "ready" fills the empty fields at setup.
+# The fields are explained in $hive_name/dance/new-project.md. Nicknames come from $hive_name/colony/roster.yaml.
 project: '$(basename "$project" | sed "s/'/''/g")'
 setup: pending
+dashboard: ''
+jira: ''
+docs: ''
+conventions: ''
 bees: []
 symbionts: []
 EOF

@@ -25,6 +25,8 @@ Once a quarter an org review is due. The Waggle Dancer runs it with the Storer: 
 
 ## One meeting, one session
 
+To start a meeting, open a new session in the IDE and paste the link to its page. An org meeting can start from any project folder that has hive; the Waggle Dancer runs it.
+
 A meeting can plan a new one, for example when design needs another bee or a Symbiont. That work isn't done in the current session: it gets its own meeting, with its own agenda. After a meeting, every new meeting is a new session.
 
 If the owner asks for it in the same session, say so plainly: open a new session in the IDE.
