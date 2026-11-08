@@ -3,6 +3,9 @@
 .env.*
 secrets/
 
+# hive's own notes: a clone of the private HigumaSoft/hive-nectar
+nectar/
+
 # IDE
 .vscode/
 .idea/

@@ -46,7 +46,7 @@ make init
 | Symbionts | Vendors, called in when needed |
 | Flowers | Personas, simulated users outside the hive |
 | Meadow | The pool of personas |
-| Nectar | A project's raw working notes, kept in the project |
+| Nectar | Raw working notes: a project's are kept in the project, hive's own in the private `HigumaSoft/hive-nectar` |
 | Honey | Finished, approved work, and the default branch |
 | Cell | One piece of work; work branches are `cell/<topic>` |
 
