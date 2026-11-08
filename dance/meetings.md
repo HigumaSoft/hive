@@ -2,13 +2,13 @@
 
 ## Three types
 
-| Type | What for | Who | Can it be skipped? |
+| Type | What for | Who | Can it be dropped? |
 |---|---|---|---|
 | **Org** | Org-level decisions, flow updates, Queen meetings | Owner, Waggle Dancer or Queen | No |
 | **Project** | Planning a project, with bees, Symbionts or people | Owner, Round Dancer, whoever the agenda names | No |
 | **Training** | Training and mentoring, can be individual | Owner or a person, Nurse, a Symbiont | Yes |
 
-The calendar shows every event's type and, for a project meeting, its project. Meetings don't mix: each has its own agenda and its own session. Org meetings can be created from any repo.
+The calendar shows every event's type and, for a project meeting, its project. Meetings don't mix: each has its own agenda and its own session. Org meetings can be created from any repo. At "ready", org and training meetings come first, and the owner can skip one for now or give it a new time (`ready.md`).
 
 ## Every meeting
 
@@ -25,7 +25,7 @@ Once a quarter an org review is due. The Waggle Dancer runs it with the Storer: 
 
 ## One meeting, one session
 
-To start a meeting, open a new session in the IDE and paste the link to its page. An org meeting can start from any project folder that has hive; the Waggle Dancer runs it.
+To start a meeting, open a new session in the IDE and say "ready": it offers what is due (`ready.md`). Pasting the link to the meeting's page also works. An org meeting can start from any project folder that has hive; the Waggle Dancer runs it.
 
 A meeting can plan a new one, for example when design needs another bee or a Symbiont. That work isn't done in the current session: it gets its own meeting, with its own agenda. After a meeting, every new meeting is a new session.
 
