@@ -35,6 +35,7 @@
 - Justify a choice by what is true now, not by what an older version did.
 - Nothing private goes in hive: no secrets, no account, site or calendar IDs, no product content, no costs.
 - Drafts stay in the project's `nectar/` and are never committed.
+- hive's own discussions, such as org meetings and changes to hive, keep their notes in the private repo `HigumaSoft/hive-nectar`, cloned at `nectar/` inside a hive clone. One folder per discussion, pushed at the end of every session. When the discussion is final, its changes go to hive as a pull request and its folder is deleted.
 
 ## Git
 
