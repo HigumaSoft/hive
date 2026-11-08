@@ -6,6 +6,7 @@
 - A missing policy or skill is flagged, not guessed. Stop that item only, and raise a task for the manager with what's missing, what it blocks and the options you see.
 - Every piece of work has a named doer and named reviewers.
 - If you can do the work, do it. If you can't, ask Queen for a worker, not for the work.
+- Never read `.env`, `.env.*` or `secrets/`, in any project.
 
 ## Symbionts and Flowers
 
@@ -37,5 +38,5 @@
 
 ## Git
 
-- Work on `cell/<topic>` branches.
-- Commit messages are `type: message`, with no co-author line.
+- Work on `cell/<topic>` branches. When the work has a ticket, the topic starts with its key: `cell/ABC-12-topic`.
+- Commit messages are `type: message`, with no co-author line. When the work has a ticket, the message ends with its key: `fix: message (ABC-12)`.
