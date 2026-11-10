@@ -68,6 +68,11 @@ out_native="$notes_native/$folder/$name.md"
 
 {
 	cat "$job"
+	skill="$hive_dir/skills/$role/SKILL.md"
+	if [ -f "$skill" ]; then
+		echo
+		cat "$skill"
+	fi
 	echo
 	cat "$hive_dir/instinct/conduct.md"
 	echo
@@ -82,7 +87,7 @@ $context
 
 Change only what the ticket needs. Don't commit, push or switch branches: the manager reviews your changes and commits them.
 
-When you finish, write a short report to $out_native: what you changed, what you tested, anything done differently, and any questions. Sign as codex.
+When you finish, write your report in full to $out_native, not only in your chat answer: what you changed, what you tested with the commands and their output, anything done differently, and any questions. When the work is research, the report is the research itself. Sign as codex.
 EOF
 	else
 		cat "$hive_dir/dance/review.md"
@@ -105,7 +110,7 @@ EOF
 
 say "dispatching $kind to $role on Codex..."
 code=0
-codex exec -c model_reasoning_effort=high -C . -s workspace-write --add-dir "$notes_native" - <"$prompt" >"$log" 2>&1 || code=$?
+codex --search exec -c model_reasoning_effort=high -C . -s workspace-write --add-dir "$notes_native" - <"$prompt" >"$log" 2>&1 || code=$?
 
 if grep -qiE 'rate.?limit|usage limit|quota|limit reached' "$log" && [ ! -s "$out" ]; then
 	say "Codex hit a limit, so this work pauses. See $log"

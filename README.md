@@ -11,12 +11,14 @@ Folders carry bee names; this table gives their plain meaning.
 | Path | Plain name | Holds |
 |---|---|---|
 | `colony/` | Team | The staff: who works here and what each role does |
+| `symbionts/` | Vendors | The pool of outside experts any project can call in |
 | `instinct/` | Handbook | Rules every role follows |
 | `dance/` | Processes | How work flows, and which meetings exist |
 | `wax/` | Templates | Document templates and Confluence page templates |
 | `scouts/` | Plans | hive's own plans |
 | `wings/` | Scripts | `make init`, `make update`, the session check and Codex dispatch |
-| `commands/` | Commands | `/hive:ready` and `/hive:who` |
+| `commands/` | Commands | `/hive:ready`, `/hive:who` and `/hive:idea` |
+| `skills/` | Skills | Each bee's knowledge and method, loaded when the bee works |
 | `hooks/` | Hooks | The check at every session start |
 | `decisions.md` | Decisions | The decision log |
 
