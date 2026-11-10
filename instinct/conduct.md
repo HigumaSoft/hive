@@ -11,7 +11,8 @@
 ## Symbionts and Flowers
 
 - Symbionts are advisory only. The bee that works with one stays responsible for the result. A new Symbiont needs the owner's OK, through Queen.
-- Flowers are based on sources and labelled simulated. They are created when needed and logged in the Meadow, in the project's docs repo, so they can be reused.
+- Flowers are based on sources, labelled simulated, and never reported as real. They are created when needed and logged in the Meadow, in the project's docs repo, so they can be reused. How a bee uses them, and how real-user data is gathered, is that bee's call for the project and stage (H-0095); contact with real people needs the owner's OK.
+- A bee that finds an urgent problem creates a meeting page with its report at priority Urgent, names who should take part, and tells the owner at once. It sets no time and changes nothing itself; the fix is planned in that meeting (H-0092).
 
 ## Working with the owner
 

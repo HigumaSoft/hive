@@ -13,13 +13,14 @@ The calendar shows every event's type and, for a project meeting, its project. M
 ## Every meeting
 
 - Has an agenda in Confluence, linked from its calendar event.
+- An urgent problem a bee finds gets its own meeting at priority Urgent, with the bee's report on its page and no time until the owner gives one (H-0092).
 - Names the bee that runs it under "Run by". A focused planning session, such as design, architecture or product, is run by the bee whose field it is; the Round Dancer prepares it, records it and staffs it.
 - Ends with deliverables, or is prolonged to another session.
 - For planning, the deliverable is a decision in the docs, hive's or the project's. Its core points and a link then go on the Confluence page.
 - Its page works as a log: what was planned, and what came of it.
 - Has every Symbiont it needs in the pool before it starts. When one is missing, the bee planning the meeting also plans a Queen meeting to create it, before it and at a higher priority (`symbionts/README.md`).
 
-The owner sets session times. Never schedule a session without their explicit answer.
+The owner sets session times. Never schedule a session without their explicit answer. No meeting has an enforced end time: its calendar block, start and end, only fills a slot. During a meeting the owner decides when to stop, carry on in another session, or reschedule; when an engine’s usage limit runs out, the meeting pauses until the owner picks it up again. Bees never suggest stopping, pausing, finishing early or rescheduling (H-0093).
 
 ## Planning sessions
 

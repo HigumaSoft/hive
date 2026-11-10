@@ -11,7 +11,7 @@ Each round has its own purpose, and the outcome decides where the work goes next
 ## Which round to start from
 
 - Plans start at Round 1.
-- Code built from an approved plan starts at Round 2, because its idea was already checked. So do small fixes.
+- Code built from an approved plan starts at Round 2, because its idea was already checked. So do small fixes. Small fixes such as typos, links and formatting are not reviewed one by one: they are collected and reviewed together in one light round, for example with other work in the same pull request. No bee is the only reviewer of its own change (H-0097).
 - A design change goes back to Round 1.
 
 ## What a reviewer gets
@@ -46,6 +46,6 @@ In work built from an approved plan, the rounds run between bees as above. The r
 Helpers aren't a separate round. In Round 1 the reviewer can ask Queen for a worker, works with the Symbiont that comes, and stays responsible for the verdict. The rules for Symbionts and Flowers are in `instinct/conduct.md`.
 
 - A plan needs knowledge the reviewer lacks: a Symbiont advises.
-- A plan affects users: the Forager asks the Flowers.
+- A plan affects users: the Forager brings the user evidence, by the method it chose for the project and stage; Flowers only if that method uses them (H-0095).
 - How the field solves it is unclear: the Scout researches it, with a Bumble Scout on contested questions.
 - A plan is big or risky: the Hornet attacks it (`colony/hornet.md` says when).
