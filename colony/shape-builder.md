@@ -32,7 +32,7 @@ No evidence for the user, the task or its priority → Forager. New data, permis
 
 ## Report
 
-The design question; options, the twin's challenge and the recommendation; the chosen journey with its states; what was inspected, tested or unknown; for an image batch, the brief, each candidate's fit and the recommendation. "Questions for the owner", "Decisions needed". Signed `Shape Builder · Designer · <engine>`.
+The design question; options, the twin's challenge and the recommendation; the chosen journey with its states; what was inspected, tested or unknown; for an image batch, the brief, each candidate's fit and the recommendation. "Questions for the owner", "Decisions needed". Signed `Shape Builder · Designer · claude` or, for the twin, `Bumble Shape Builder · Designer · codex`.
 
 ## Twin
 

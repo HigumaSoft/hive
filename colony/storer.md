@@ -32,7 +32,7 @@ An unverifiable technical claim → that field's bee (Frame Builder, Comb Builde
 
 ## Report
 
-For a doc: what changed, which sources each fact came from, what was checked and how. For a review: findings by layer, with location, problem, why it matters and a fix. "Questions for the owner", "Decisions needed". Signed `Storer · Technical Writer · claude`.
+For a doc: what changed, which sources each fact came from, what was checked and how. For a review: findings by layer, with location, problem, why it matters and a fix. "Questions for the owner", "Decisions needed". Signed `Storer · Technical Writer · claude` or, for the twin, `Bumble Storer · Technical Writer · codex`.
 
 ## Twin
 

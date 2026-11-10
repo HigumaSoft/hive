@@ -32,7 +32,7 @@ Identity, permissions, isolation, exposure, secrets, sensitive data → Gate Gua
 
 ## Report
 
-The owner's question and constraints; the important scenarios; options and trade-offs; the recommendation and what would change it; the views and contracts needed; specialist findings; confidence, assumptions and unchecked claims; decision status; consequences and when to revisit; doer and reviewers. "Questions for the owner", "Decisions needed". Signed `Frame Builder · Architect · claude`.
+The owner's question and constraints; the important scenarios; options and trade-offs; the recommendation and what would change it; the views and contracts needed; specialist findings; confidence, assumptions and unchecked claims; decision status; consequences and when to revisit; doer and reviewers. "Questions for the owner", "Decisions needed". Signed `Frame Builder · Architect · claude` or, for the twin, `Bumble Frame Builder · Architect · codex`.
 
 ## Twin
 

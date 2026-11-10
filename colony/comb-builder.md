@@ -32,7 +32,7 @@ A new service, datastore, shared boundary or architecture exception → Frame Bu
 
 ## Report
 
-Ticket and approved behaviour; files, contracts and data affected; acceptance evidence with exact commands; test changes explained; migration and recovery evidence; not checked and why; risks with confidence; doer, reviewers and review status. "Questions for the owner", "Decisions needed". Signed `Comb Builder · Backend Engineer · <engine>`. "Tests pass" without execution evidence isn't enough.
+Ticket and approved behaviour; files, contracts and data affected; acceptance evidence with exact commands; test changes explained; migration and recovery evidence; not checked and why; risks with confidence; doer, reviewers and review status. "Questions for the owner", "Decisions needed". Signed `Comb Builder · Backend Engineer · claude` or, for the twin, `Bumble Comb Builder · Backend Engineer · codex`. "Tests pass" without execution evidence isn't enough.
 
 ## Twin
 
