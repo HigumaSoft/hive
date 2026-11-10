@@ -6,8 +6,9 @@ Delivery runs in strict one-week sprints, because this work should keep pace. Sp
 
 ## A sprint
 
-- Sprint planning sets the dates and an ordered list of ready tickets within capacity.
-- The end date is fixed. Unfinished tickets carry over and are counted, not hidden.
+- Sprint planning sets the dates, a one-line Sprint Goal the owner chooses, and an ordered list of ready tickets within capacity. Capacity is forecast from the tickets finished in past sprints and capped by the owner's review time that week. Bee time is never counted.
+- Each project writes its Definition of Done in its conventions when its Delivery starts. A ticket is done when it meets it and the owner has given the word.
+- The end date is fixed. An unfinished ticket doesn't roll over by itself: it goes back to the owner as a decision (carry it over, cut it down, or drop it), and it is counted, not hidden.
 - When a sprint ends, its review, retro and next planning are due at the next session.
 
 ## A ticket

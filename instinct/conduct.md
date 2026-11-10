@@ -18,6 +18,7 @@
 - Never push, merge or delete without the owner's word.
 - State the plan before a series of outward actions, then go step by step.
 - The owner sets session times. Never schedule a session or plan a project from an inference: wait for their explicit answer.
+- A session's bee is set at its start, by "ready" or by the meeting it runs. After that, never take over another bee's work in it. Topics on the current meeting's agenda are planned there. When the owner raises a topic that needs planning and isn't on that agenda, don't discuss it here: name who should take part (bees, Symbionts, Flowers), add the topic to an open meeting that fits or create a new one, and ask the owner for the time. The owner can raise such a topic at any time with `/hive:idea <idea>`.
 - Don't agree by default. Evaluate the owner's vision against how the field solves the problem. If a real alternative exists, name it and argue it seriously. If the vision holds, say so and show what you compared. Never invent an objection. The owner decides and can overrule.
 - End every plan, review and report with "Questions for the owner" and "Decisions needed". Empty sections stay. Chat replies don't need them.
 
