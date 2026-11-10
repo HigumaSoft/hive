@@ -1,6 +1,6 @@
 # Every role in the hive. Job descriptions sit next to this file as <key>.md.
 # engine: claude, openai, or balance (set per piece of work).
-# level: senior or lighter, for roles on a fixed Claude model.
+# level: the effort for routine steps. Every Claude bee runs on the senior model; "lighter" means lower effort for routine steps such as the "ready" check (H-0088).
 # twin: the Codex bee of a pair.
 
 bees:
